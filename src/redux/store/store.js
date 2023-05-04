@@ -9,13 +9,21 @@ import {
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    filterContacts: (state, action) => {
+      return {
+        ...state,
+        valueFilter: action.payload,
+      };
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getContactsThunk.fulfilled, (state, action) => {
         state.contacts = action.payload;
       })
       .addCase(createContactsThunk.fulfilled, (state, action) => {
-        state.contacts = [...state.contacts, action.payload.body];
+        state.contacts = [...state.contacts, action.payload];
       })
       .addCase(deleteContactsThunk.fulfilled, (state, action) => {
         state.contacts = [...state.contacts].filter(
@@ -66,7 +74,7 @@ export const contactsSlice = createSlice({
 //   },
 // });
 
-// export const { addContact, delContact, filterContacts } = contactsSlice.actions;
+export const { filterContacts } = contactsSlice.actions;
 
 const store = configureStore({
   reducer: contactsSlice.reducer,

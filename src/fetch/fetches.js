@@ -11,7 +11,7 @@ export const getContacts = async () => {
 export const createContacts = async contact => {
   const createContact = await axios.post(
     `https://6452a61dbce0b0a0f74cb532.mockapi.io/contacts/contacts`,
-    { body: contact }
+    { ...contact }
   );
 
   return createContact.data;

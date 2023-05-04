@@ -18,7 +18,6 @@ export const createContactsThunk = createAsyncThunk(
 export const deleteContactsThunk = createAsyncThunk(
   'phonebook/deleteContacts',
   async id => {
-    console.log(id);
     return await deleteContacts(id);
   }
 );

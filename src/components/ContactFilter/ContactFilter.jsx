@@ -1,16 +1,16 @@
 import { deleteContactsThunk } from 'redux/contacts/reducerContacts';
 import { FilterDelBtn, FilterListItem } from './contactFilter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-// import { delContact, filterContacts } from 'store/store';
+import { filterContacts } from 'redux/store/store';
 
 export function ContactFilter() {
   const dispatch = useDispatch();
   const contacts = useSelector(({ contacts }) => contacts);
   const valueFilter = useSelector(({ valueFilter }) => valueFilter);
 
-  // const onChangeFilter = e => {
-  //   dispatch(filterContacts(e.target.value));
-  // };
+  const onChangeFilter = e => {
+    dispatch(filterContacts(e.target.value));
+  };
 
   const onDeleteContact = e => {
     dispatch(deleteContactsThunk(e.target.id));
@@ -33,8 +33,8 @@ export function ContactFilter() {
     <>
       <input
         placeholder="search"
-        // onChange={onChangeFilter}
-        // value={valueFilter}
+        onChange={onChangeFilter}
+        value={valueFilter}
         name="filter"
       ></input>
       <ul>
