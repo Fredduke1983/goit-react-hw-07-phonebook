@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export const getContacts = async () => {
-  const getContacts = await axios.get(
+  const contacts = await axios.get(
     'https://6452a61dbce0b0a0f74cb532.mockapi.io/contacts/contacts'
   );
 
-  return getContacts.data;
+  return contacts.data;
 };
 
 export const createContacts = async contact => {
@@ -15,4 +15,12 @@ export const createContacts = async contact => {
   );
 
   return createContact.data;
+};
+
+export const deleteContacts = async id => {
+  const deleteContact = await axios.delete(
+    `https://6452a61dbce0b0a0f74cb532.mockapi.io/contacts/contacts/${id}`
+  );
+
+  return deleteContact.data;
 };

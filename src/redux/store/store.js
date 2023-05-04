@@ -2,6 +2,7 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 import { initialState } from './initial';
 import {
   createContactsThunk,
+  deleteContactsThunk,
   getContactsThunk,
 } from 'redux/contacts/reducerContacts';
 
@@ -15,6 +16,11 @@ export const contactsSlice = createSlice({
       })
       .addCase(createContactsThunk.fulfilled, (state, action) => {
         state.contacts = [...state.contacts, action.payload.body];
+      })
+      .addCase(deleteContactsThunk.fulfilled, (state, action) => {
+        state.contacts = [...state.contacts].filter(
+          el => el.id !== action.payload.id
+        );
       });
   },
 });
