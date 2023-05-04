@@ -1,15 +1,23 @@
 import {
+  createContactsThunk,
+  getContactsThunk,
+} from 'redux/contacts/reducerContacts';
+import {
   FormBtn,
   FormContact,
   InputContact,
   LabelContact,
 } from './contactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'store/store';
+import { useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
 export function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(({ contacts }) => contacts);
+  useEffect(() => {
+    dispatch(getContactsThunk());
+  }, [dispatch]);
 
   const onSubmit = e => {
     const {
@@ -30,9 +38,10 @@ export function ContactForm() {
       return;
     }
     dispatch(
-      addContact({
-        valueName,
-        valueNumber,
+      createContactsThunk({
+        id: nanoid(),
+        name: valueName,
+        number: valueNumber,
       })
     );
   };
