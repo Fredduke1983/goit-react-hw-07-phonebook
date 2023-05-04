@@ -33,47 +33,6 @@ export const contactsSlice = createSlice({
   },
 });
 
-// export const contactsSlice = createSlice({
-//   name: 'contacts',
-//   initialState,
-// reducers: {
-//   addContact: ({ contacts }, { payload: { valueName, valueNumber } }) => {
-//     return {
-//       contacts: [
-//         ...contacts,
-//         {
-//           id: nanoid(),
-//           name: valueName,
-//           number: valueNumber,
-//         },
-//       ],
-//       valueFilter: '',
-//     };
-//   },
-//   delContact: ({ contacts }, { payload }) => {
-//     const contactsDeleted = [...contacts].filter(contact => {
-//       return !contact.id.includes(payload);
-//     });
-//     return {
-//       contacts: [...contactsDeleted],
-//       valueFilter: '',
-//     };
-//   },
-//   filterContacts: ({ contacts }, { payload }) => {
-//     return {
-//       contacts: [...contacts],
-//       valueFilter: payload,
-//     };
-//   },
-// },
-//   extraReducers: builder => {
-//     builder.addCase(reducerContacts.fulfilled, (state, action) => {
-//       console.log(state);
-//       state.cont.push(action.payload);
-//     });
-//   },
-// });
-
 export const { filterContacts } = contactsSlice.actions;
 
 const store = configureStore({

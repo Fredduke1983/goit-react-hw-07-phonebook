@@ -11,10 +11,11 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import { contactsSelector } from 'redux/selectors/selectors';
 
 export function ContactForm() {
   const dispatch = useDispatch();
-  const contacts = useSelector(({ contacts }) => contacts);
+  const contacts = useSelector(contactsSelector);
   useEffect(() => {
     dispatch(getContactsThunk());
   }, [dispatch]);

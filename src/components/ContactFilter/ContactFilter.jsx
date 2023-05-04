@@ -2,11 +2,12 @@ import { deleteContactsThunk } from 'redux/contacts/reducerContacts';
 import { FilterDelBtn, FilterListItem } from './contactFilter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'redux/store/store';
+import { contactsSelector, filterSelector } from 'redux/selectors/selectors';
 
 export function ContactFilter() {
   const dispatch = useDispatch();
-  const contacts = useSelector(({ contacts }) => contacts);
-  const valueFilter = useSelector(({ valueFilter }) => valueFilter);
+  const contacts = useSelector(contactsSelector);
+  const valueFilter = useSelector(filterSelector);
 
   const onChangeFilter = e => {
     dispatch(filterContacts(e.target.value));
