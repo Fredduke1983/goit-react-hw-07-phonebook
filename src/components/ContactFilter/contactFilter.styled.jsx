@@ -16,6 +16,7 @@ const FilterDelBtn = styled.button`
 
 const FilterListItem = styled.li`
   margin-bottom: 10px;
+  color: #fff;
 `;
 
 const InputSearch = styled.input`
