@@ -1,10 +1,23 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { createSlice, configureStore, isAnyOf } from '@reduxjs/toolkit';
 import { initialState } from './initial';
 import {
   createContactsThunk,
   deleteContactsThunk,
   getContactsThunk,
 } from 'redux/contacts/reducerContacts';
+
+const arrThunks = [createContactsThunk, deleteContactsThunk, getContactsThunk];
+const allThunks = type => arrThunks.map(el => el[type]);
+const handlePending = state => {
+  state.isLoading = true;
+};
+const handleFulfilled = state => {
+  state.isLoading = false;
+};
+const handleRej = (state, action) => {
+  console.error(action.error.message);
+  state.error = action.error.message;
+};
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -29,7 +42,11 @@ export const contactsSlice = createSlice({
         state.contacts = [...state.contacts].filter(
           el => el.id !== action.payload.id
         );
-      });
+      })
+
+      .addMatcher(isAnyOf(...allThunks('pending')), handlePending)
+      .addMatcher(isAnyOf(...allThunks('fulfilled')), handleFulfilled)
+      .addMatcher(isAnyOf(...allThunks('rejected')), handleRej);
   },
 });
 

@@ -3,6 +3,8 @@ import { FilterDelBtn, FilterListItem } from './contactFilter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'redux/store/store';
 import { contactsSelector, filterSelector } from 'redux/selectors/selectors';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function ContactFilter() {
   const dispatch = useDispatch();
@@ -15,23 +17,52 @@ export function ContactFilter() {
 
   const onDeleteContact = e => {
     dispatch(deleteContactsThunk(e.target.id));
+    toast.info(`Контакт ${e.target.name} видалено`, {
+      position: 'top-left',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
   };
 
   function onFilterContacts(filterContact) {
-    return filterContact.map(contact => {
+    const filtredContacts = filterContact.map(contact => {
       return (
         <FilterListItem id={contact.id} key={contact.id}>
           {contact.name}: {contact.number}
-          <FilterDelBtn id={contact.id} onClick={onDeleteContact}>
+          <FilterDelBtn
+            id={contact.id}
+            name={contact.name}
+            onClick={onDeleteContact}
+          >
             delete
           </FilterDelBtn>
         </FilterListItem>
       );
     });
+
+    return filtredContacts.length ? filtredContacts : <h1> NO CONTACTS</h1>;
   }
 
   return (
     <>
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+
       <input
         placeholder="search"
         onChange={onChangeFilter}

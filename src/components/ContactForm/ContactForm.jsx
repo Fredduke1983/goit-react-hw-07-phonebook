@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { contactsSelector } from 'redux/selectors/selectors';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function ContactForm() {
   const dispatch = useDispatch();
@@ -35,7 +37,16 @@ export function ContactForm() {
         return name === valueName;
       })
     ) {
-      alert('Its allready in case');
+      toast.error(`Контакт ${valueName} вже існує, введіть інше ім'я`, {
+        position: 'top-left',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
       return;
     }
     dispatch(
@@ -45,6 +56,16 @@ export function ContactForm() {
         number: valueNumber,
       })
     );
+    toast.success(`Контакт ${valueName} додано`, {
+      position: 'top-left',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
   };
 
   return (

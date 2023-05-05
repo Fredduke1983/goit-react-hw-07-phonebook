@@ -4,7 +4,6 @@ export const getContacts = async () => {
   const contacts = await axios.get(
     'https://6452a61dbce0b0a0f74cb532.mockapi.io/contacts/contacts'
   );
-
   return contacts.data;
 };
 
