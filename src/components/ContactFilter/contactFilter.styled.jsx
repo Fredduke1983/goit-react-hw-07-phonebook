@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+const ContactsList = styled.ul`
+  padding: 0;
+  margin: 0;
+`;
+
 const FilterDelBtn = styled.button`
   cursor: pointer;
   margin-left: 20px;
@@ -22,6 +27,8 @@ const FilterListItem = styled.li`
   justify-content: space-between;
   margin-bottom: 10px;
   color: #fff;
+  list-style: none;
+
   &:hover {
     border-radius: 5px;
 
@@ -33,6 +40,7 @@ const FilterListItem = styled.li`
 `;
 
 const InputSearch = styled.input`
+  margin-bottom: 20px;
   margin-right: 10px;
   border-radius: 5px;
   border-color: aliceblue;
@@ -44,4 +52,4 @@ const NoContacts = styled.h1`
   text-shadow: grey 2px 2px 5px;
 `;
 
-export { FilterDelBtn, FilterListItem, InputSearch, NoContacts };
+export { FilterDelBtn, FilterListItem, InputSearch, NoContacts, ContactsList };

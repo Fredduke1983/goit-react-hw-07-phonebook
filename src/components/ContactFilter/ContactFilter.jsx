@@ -1,5 +1,6 @@
 import { deleteContactsThunk } from 'redux/contacts/reducerContacts';
 import {
+  ContactsList,
   FilterDelBtn,
   FilterListItem,
   InputSearch,
@@ -83,13 +84,13 @@ export function ContactFilter() {
         value={valueFilter}
         name="filter"
       ></InputSearch>
-      <ul>
+      <ContactsList>
         {onFilterContacts(
           [...contacts].filter(contact => {
             return contact.name.toLowerCase().includes(valueFilter);
           })
         )}
-      </ul>
+      </ContactsList>
     </>
   );
 }
