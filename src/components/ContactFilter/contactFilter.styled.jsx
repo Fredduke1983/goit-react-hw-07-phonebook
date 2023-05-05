@@ -11,6 +11,7 @@ const FilterDelBtn = styled.button`
     cursor: pointer;
     background-color: red;
     color: black;
+    box-shadow: 0px 2px 2px 2px grey;
   }
 `;
 
@@ -23,6 +24,7 @@ const InputSearch = styled.input`
   margin-right: 10px;
   border-radius: 5px;
   border-color: aliceblue;
+  box-shadow: 0px 2px 2px 2px grey;
 `;
 
 const NoContacts = styled.h1`
