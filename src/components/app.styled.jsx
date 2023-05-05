@@ -22,6 +22,13 @@ const MainTitle = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: center;
+  color: #fff;
+  text-shadow: red 2px 5px 7px;
 `;
 
-export { PhoneBookStyle, PhoneBookHead, MainTitle };
+const SecondTitle = styled.h1`
+  color: grey;
+  text-shadow: red 2px 5px 7px;
+`;
+
+export { PhoneBookStyle, PhoneBookHead, MainTitle, SecondTitle };

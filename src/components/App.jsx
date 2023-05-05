@@ -1,6 +1,11 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactFilter } from './ContactFilter/ContactFilter';
-import { MainTitle, PhoneBookHead, PhoneBookStyle } from './app.styled';
+import {
+  MainTitle,
+  PhoneBookHead,
+  PhoneBookStyle,
+  SecondTitle,
+} from './app.styled';
 import { Oval } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
 import { isLoadingSelector } from 'redux/selectors/selectors';
@@ -29,7 +34,7 @@ export function App() {
 
         <ContactForm />
       </PhoneBookHead>
-      <h2>Contacts</h2>
+      <SecondTitle>Contacts</SecondTitle>
       <ContactFilter />
     </PhoneBookStyle>
   );
