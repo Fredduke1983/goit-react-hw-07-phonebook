@@ -18,7 +18,7 @@ const FormBtn = styled.button`
     color 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
   &:hover {
     cursor: pointer;
-    background-color: yellow;
+    background-color: aliceblue;
     color: black;
   }
 `;
