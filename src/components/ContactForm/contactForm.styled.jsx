@@ -23,7 +23,7 @@ const FormBtn = styled.button`
     cursor: pointer;
     background-color: aliceblue;
     color: black;
-    box-shadow: 0px 2px 2px 2px black;
+    box-shadow: 0px 2px 4px 4px white;
   }
 `;
 
