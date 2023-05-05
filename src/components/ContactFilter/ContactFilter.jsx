@@ -2,7 +2,11 @@ import { deleteContactsThunk } from 'redux/contacts/reducerContacts';
 import { FilterDelBtn, FilterListItem } from './contactFilter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'redux/store/store';
-import { contactsSelector, filterSelector } from 'redux/selectors/selectors';
+import {
+  contactsSelector,
+  filterSelector,
+  isLoadingSelector,
+} from 'redux/selectors/selectors';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,6 +14,7 @@ export function ContactFilter() {
   const dispatch = useDispatch();
   const contacts = useSelector(contactsSelector);
   const valueFilter = useSelector(filterSelector);
+  const isLoading = useSelector(isLoadingSelector);
 
   const onChangeFilter = e => {
     dispatch(filterContacts(e.target.value));
@@ -45,7 +50,11 @@ export function ContactFilter() {
       );
     });
 
-    return filtredContacts.length ? filtredContacts : <h1> NO CONTACTS</h1>;
+    return filtredContacts.length ? (
+      filtredContacts
+    ) : (
+      <>{!isLoading && <h1> NO CONTACTS</h1>}</>
+    );
   }
 
   return (

@@ -1,8 +1,27 @@
 import styled from 'styled-components';
 
 const PhoneBookStyle = styled.div`
+  position: relative;
   width: 600px;
-  margin: 0 auto;
+  min-height: 600px;
+  margin: 20px auto;
+  padding: 40px 40px;
+  box-shadow: 0px 5px 5px 5px #1f3a93;
+  border-radius: 10px;
 `;
 
-export { PhoneBookStyle };
+const PhoneBookHead = styled.div`
+  display: grid;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 0px 5px 5px 5px #1f3a93;
+  border-radius: 10px;
+`;
+
+const MainTitle = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+`;
+
+export { PhoneBookStyle, PhoneBookHead, MainTitle };
