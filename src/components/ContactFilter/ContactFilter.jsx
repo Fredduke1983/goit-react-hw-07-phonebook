@@ -49,7 +49,7 @@ export function ContactFilter() {
             name={contact.name}
             onClick={onDeleteContact}
           >
-            X
+            DELETE
           </FilterDelBtn>
         </FilterListItem>
       );
