@@ -6,7 +6,7 @@ const PhoneBookStyle = styled.div`
   min-height: 600px;
   margin: 20px auto;
   padding: 40px 40px;
-  box-shadow: 0px 5px 5px 5px #1f3a93;
+  box-shadow: 0px 5px 5px 5px grey;
   border-radius: 10px;
 `;
 
@@ -14,7 +14,7 @@ const PhoneBookHead = styled.div`
   display: grid;
   justify-content: center;
   border: 1px solid black;
-  box-shadow: 0px 5px 5px 5px #1f3a93;
+  box-shadow: 0px 5px 5px 5px grey;
   border-radius: 10px;
 `;
 

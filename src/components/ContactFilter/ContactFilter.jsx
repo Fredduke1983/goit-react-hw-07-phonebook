@@ -1,5 +1,9 @@
 import { deleteContactsThunk } from 'redux/contacts/reducerContacts';
-import { FilterDelBtn, FilterListItem } from './contactFilter.styled';
+import {
+  FilterDelBtn,
+  FilterListItem,
+  InputSearch,
+} from './contactFilter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'redux/store/store';
 import {
@@ -44,7 +48,7 @@ export function ContactFilter() {
             name={contact.name}
             onClick={onDeleteContact}
           >
-            delete
+            X
           </FilterDelBtn>
         </FilterListItem>
       );
@@ -72,12 +76,12 @@ export function ContactFilter() {
         theme="colored"
       />
 
-      <input
+      <InputSearch
         placeholder="search"
         onChange={onChangeFilter}
         value={valueFilter}
         name="filter"
-      ></input>
+      ></InputSearch>
       <ul>
         {onFilterContacts(
           [...contacts].filter(contact => {
