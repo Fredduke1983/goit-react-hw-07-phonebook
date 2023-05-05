@@ -25,4 +25,9 @@ const InputSearch = styled.input`
   border-color: aliceblue;
 `;
 
-export { FilterDelBtn, FilterListItem, InputSearch };
+const NoContacts = styled.h1`
+  color: #fff;
+  text-shadow: grey 2px 2px 5px;
+`;
+
+export { FilterDelBtn, FilterListItem, InputSearch, NoContacts };

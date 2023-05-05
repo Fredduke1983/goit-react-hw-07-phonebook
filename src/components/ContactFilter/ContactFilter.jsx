@@ -3,6 +3,7 @@ import {
   FilterDelBtn,
   FilterListItem,
   InputSearch,
+  NoContacts,
 } from './contactFilter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'redux/store/store';
@@ -57,7 +58,7 @@ export function ContactFilter() {
     return filtredContacts.length ? (
       filtredContacts
     ) : (
-      <>{!isLoading && <h1> NO CONTACTS</h1>}</>
+      <>{!isLoading && <NoContacts> NO CONTACTS</NoContacts>}</>
     );
   }
 
