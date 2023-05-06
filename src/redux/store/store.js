@@ -9,14 +9,14 @@ import {
 const arrThunks = [createContactsThunk, deleteContactsThunk, getContactsThunk];
 const allThunks = type => arrThunks.map(el => el[type]);
 const handlePending = state => {
-  state.isLoading = true;
+  state.contacts.isLoading = true;
 };
 const handleFulfilled = state => {
-  state.isLoading = false;
+  state.contacts.isLoading = false;
 };
 const handleRej = (state, action) => {
   console.error(action.error.message);
-  state.error = action.error.message;
+  state.contacts.error = action.error.message;
 };
 
 export const contactsSlice = createSlice({
@@ -33,13 +33,13 @@ export const contactsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getContactsThunk.fulfilled, (state, action) => {
-        state.contacts = action.payload;
+        state.contacts.items = action.payload;
       })
       .addCase(createContactsThunk.fulfilled, (state, action) => {
-        state.contacts = [...state.contacts, action.payload];
+        state.contacts.items = [...state.contacts.items, action.payload];
       })
       .addCase(deleteContactsThunk.fulfilled, (state, action) => {
-        state.contacts = [...state.contacts].filter(
+        state.contacts.items = [...state.contacts.items].filter(
           el => el.id !== action.payload.id
         );
       })
@@ -50,7 +50,7 @@ export const contactsSlice = createSlice({
   },
 });
 
-export const { filterContacts } = contactsSlice.actions;
+export const { filterContacts, toggleMusic } = contactsSlice.actions;
 
 const store = configureStore({
   reducer: contactsSlice.reducer,

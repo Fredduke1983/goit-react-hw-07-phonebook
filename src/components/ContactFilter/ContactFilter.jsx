@@ -46,6 +46,7 @@ export function ContactFilter() {
         <FilterListItem id={contact.id} key={contact.id}>
           {contact.name}: {contact.number}
           <FilterDelBtn
+            disabled={isLoading}
             id={contact.id}
             name={contact.name}
             onClick={onDeleteContact}
@@ -87,7 +88,7 @@ export function ContactFilter() {
       <ContactsList>
         {onFilterContacts(
           [...contacts].filter(contact => {
-            return contact.name.toLowerCase().includes(valueFilter);
+            return contact.name.includes(valueFilter);
           })
         )}
       </ContactsList>

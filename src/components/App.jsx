@@ -6,7 +6,7 @@ import {
   PhoneBookStyle,
   SecondTitle,
 } from './app.styled';
-import { Oval } from 'react-loader-spinner';
+import { RotatingLines } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
 import { isLoadingSelector } from 'redux/selectors/selectors';
 
@@ -17,21 +17,17 @@ export function App() {
     <PhoneBookStyle>
       <PhoneBookHead>
         <MainTitle>
-          <h1 style={{ marginRight: '20px' }}>Phonebook</h1>
-          <Oval
-            height={20}
-            width={20}
-            color="#2a2a2a"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={isLoading}
-            ariaLabel="oval-loading"
-            secondaryColor="#b4a7d6"
-            strokeWidth={2}
-            strokeWidthSecondary={2}
-          />
+          <h1>Phonebook</h1>
+          <div style={{ position: 'fixed', transform: 'translateY(300%)' }}>
+            <RotatingLines
+              strokeColor="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="96"
+              visible={isLoading}
+            />
+          </div>
         </MainTitle>
-
         <ContactForm />
       </PhoneBookHead>
       <SecondTitle>Contacts</SecondTitle>
