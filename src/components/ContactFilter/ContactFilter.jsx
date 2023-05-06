@@ -1,5 +1,6 @@
 import { deleteContactsThunk } from 'redux/contacts/reducerContacts';
 import {
+  ContactItem,
   ContactsList,
   FilterDelBtn,
   FilterListItem,
@@ -14,6 +15,7 @@ import {
   isLoadingSelector,
 } from 'redux/selectors/selectors';
 import { ToastContainer, toast } from 'react-toastify';
+import { BiNotepad } from 'react-icons/bi';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function ContactFilter() {
@@ -44,7 +46,18 @@ export function ContactFilter() {
     const filtredContacts = filterContact.map(contact => {
       return (
         <FilterListItem id={contact.id} key={contact.id}>
-          {contact.name}: {contact.number}
+          <ContactItem>
+            {/* <BiNotepad
+              style={{
+                height: '30px',
+                width: '30px',
+                boxShadow: '1px 1px 4px  grey',
+                borderRadius: '5px',
+              }}
+            /> */}
+            {contact.name}: {contact.number}
+          </ContactItem>
+
           <FilterDelBtn
             disabled={isLoading}
             id={contact.id}

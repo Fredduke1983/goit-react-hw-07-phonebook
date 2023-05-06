@@ -28,6 +28,7 @@ const FilterListItem = styled.li`
   margin-bottom: 10px;
   color: #fff;
   list-style: none;
+  padding: 5px;
 
   &:hover {
     border-radius: 5px;
@@ -52,4 +53,17 @@ const NoContacts = styled.h1`
   text-shadow: grey 2px 2px 5px;
 `;
 
-export { FilterDelBtn, FilterListItem, InputSearch, NoContacts, ContactsList };
+const ContactItem = styled.div`
+  display: flex;
+  align-items: end;
+  gap: 10px;
+`;
+
+export {
+  FilterDelBtn,
+  FilterListItem,
+  InputSearch,
+  NoContacts,
+  ContactsList,
+  ContactItem,
+};
