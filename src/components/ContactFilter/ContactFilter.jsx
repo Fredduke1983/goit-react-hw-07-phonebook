@@ -15,7 +15,7 @@ import {
   isLoadingSelector,
 } from 'redux/selectors/selectors';
 import { ToastContainer, toast } from 'react-toastify';
-import { BiNotepad } from 'react-icons/bi';
+// import { BiNotepad } from 'react-icons/bi';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function ContactFilter() {
